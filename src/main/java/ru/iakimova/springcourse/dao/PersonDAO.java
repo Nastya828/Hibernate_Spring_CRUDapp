@@ -22,10 +22,9 @@ public class PersonDAO {
     @Transactional(readOnly = true)
     public List<Person> index() {
         Session session = sessionFactory.getCurrentSession();
-        List<Person> people = session.createQuery(
+        return session.createQuery(
                         "select p from Person p", Person.class)
                 .getResultList();
-        return people;
 
     }
 
